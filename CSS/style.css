@@ -1,0 +1,30 @@
+:root {
+  --white: hsl(0, 0%, 100%);
+  --lightGrayishViolet: hsl(270, 3%, 87%);
+  --darkGrayishViolet: hsl(279, 6%, 55%);
+  --veryDarkViolet: hsl(278, 68%, 11%);
+  --red: hsl(0, 100%, 66%);
+  --linearGradient: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+}
+* {
+  font-family: "Space Grotesk", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  background-color: var(--linearGradient);
+}
+
+.active {
+  display: block;
+}
+/* FOOTER */
+.attribution p {
+  font-size: 1.1rem;
+  text-align: center;
+}
+.attribution a {
+  color: var(--linearGradient);
+}
