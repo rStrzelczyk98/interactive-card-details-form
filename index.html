@@ -20,7 +20,7 @@
   </head>
   <body>
     <main class="container">
-      <span class="background">
+      <div class="background">
         <figure class="card front">
           <img id="logo" src="images/card-logo.svg" alt="" />
           <p id="number">0000 0000 0000 0000</p>
@@ -32,7 +32,7 @@
         <figure class="card back">
           <span><p id="cvc">000</p></span>
         </figure>
-      </span>
+      </div>
       <form action="#" class="card-info">
         <div class="field name">
           <label for="name">cardholder name</label>
@@ -46,9 +46,9 @@
             aria-invalid="false"
             placeholder="e.g. Jane Appleseed"
           />
-          <span class="error-msg"
-            ><p id="errorID-1" aria-live="assertive"></p
-          ></span>
+          <div class="error-msg">
+            <p id="errorID-1" aria-live="assertive"></p>
+          </div>
         </div>
 
         <div class="field card-number">
@@ -64,9 +64,9 @@
             aria-invalid="false"
             placeholder="e.g. 1234 5678 9123 0000"
           />
-          <span class="error-msg"
-            ><p id="errorID-2" aria-live="assertive"></p
-          ></span>
+          <div class="error-msg">
+            <p id="errorID-2" aria-live="assertive"></p>
+          </div>
         </div>
 
         <div class="field exp-date">
@@ -93,10 +93,10 @@
             aria-invalid="false"
             placeholder="YY"
           />
-          <span class="error-msg"
-            ><p id="errorID-3" aria-live="assertive"></p>
-            <p id="errorID-4" aria-live="assertive"></p
-          ></span>
+          <div class="error-msg">
+            <p id="errorID-3" aria-live="assertive"></p>
+            <p id="errorID-4" aria-live="assertive"></p>
+          </div>
         </div>
 
         <div class="field cvc-number">
@@ -112,9 +112,9 @@
             aria-invalid="false"
             placeholder="e.g. 123"
           />
-          <span class="error-msg"
-            ><p id="errorID-5" aria-live="assertive"></p
-          ></span>
+          <div class="error-msg">
+            <p id="errorID-5" aria-live="assertive"></p>
+          </div>
         </div>
 
         <button class="btn confirm" type="submit" aria-label="confirm button">
