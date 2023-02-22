@@ -161,7 +161,7 @@ function cvcValidation() {
     displayError(this);
     return false;
   } else if (!checkCvc(this)) {
-    displayError(this, "Inavalid CVC! Chose between 000-999");
+    displayError(this, "Choose between 000-999");
     return false;
   } else {
     validInput(this);
