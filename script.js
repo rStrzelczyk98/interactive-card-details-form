@@ -1,7 +1,7 @@
-'use strict';
-const form = document.querySelector('.card-info');
-const thankYouCard = document.querySelector('.thank-you');
-const btnContinue = document.querySelector('.continue');
+"use strict";
+const form = document.querySelector(".card-info");
+const thankYouCard = document.querySelector(".thank-you");
+const btnContinue = document.querySelector(".continue");
 
 const nameInput = document.querySelector('input[name="name"]');
 const numberInput = document.querySelector('input[name="card-number"]');
@@ -9,30 +9,30 @@ const monthInput = document.querySelector('input[name="month"]');
 const yearInput = document.querySelector('input[name="year"]');
 const cvcInput = document.querySelector('input[name="cvc-number"]');
 
-const cardNumber = document.querySelector('#number');
-const cardHolder = document.querySelector('#cardholder');
-const cardDateMonth = document.querySelector('#date-month');
-const cardDateYear = document.querySelector('#date-year');
-const cardCvc = document.querySelector('#cvc');
+const cardNumber = document.querySelector("#number");
+const cardHolder = document.querySelector("#cardholder");
+const cardDateMonth = document.querySelector("#date-month");
+const cardDateYear = document.querySelector("#date-year");
+const cardCvc = document.querySelector("#cvc");
 
-form.addEventListener('submit', function (e) {
+form.addEventListener("submit", function (e) {
   e.preventDefault();
   if (validForm()) {
-    form.classList.add('hidden');
-    thankYouCard.classList.remove('hidden');
+    form.classList.add("hidden");
+    thankYouCard.classList.remove("hidden");
   }
 });
-nameInput.addEventListener('input', nameValidation);
-numberInput.addEventListener('input', numberValidation);
-monthInput.addEventListener('input', monthValidation);
-yearInput.addEventListener('input', yearValidation);
-cvcInput.addEventListener('input', cvcValidation);
+nameInput.addEventListener("input", nameValidation);
+numberInput.addEventListener("input", numberValidation);
+monthInput.addEventListener("input", monthValidation);
+yearInput.addEventListener("input", yearValidation);
+cvcInput.addEventListener("input", cvcValidation);
 
-btnContinue.addEventListener('click', () => document.location.reload());
+btnContinue.addEventListener("click", () => document.location.reload());
 
 // NAME
 function checkName(element) {
-  const patern = /^[a-zA-Z]+\s[a-zA-Z-]+$/;
+  const patern = /^[a-zA-Z]+\s[a-zA-Z-\s]+$/;
   return patern.test(element.value);
 }
 
@@ -42,7 +42,7 @@ function nameValidation() {
     displayError(this);
     return false;
   } else if (!checkName(this)) {
-    displayError(this, 'Invalid name');
+    displayError(this, "Invalid name");
     return false;
   } else {
     validInput(this);
@@ -51,21 +51,21 @@ function nameValidation() {
 
   function updateName(element) {
     if (!element.value) {
-      cardHolder.textContent = 'jane appleseed';
+      cardHolder.textContent = "jane appleseed";
     } else cardHolder.textContent = element.value;
   }
 }
 
 // CARD NUMBER
 function cardNumberFormat(element) {
-  element.addEventListener('keypress', function (e) {
-    const backspace = e.key === 'Backspace';
+  element.addEventListener("keypress", function (e) {
+    const backspace = e.key === "Backspace";
     if (!backspace && element.value.length === 4) {
-      element.value = element.value + ' ';
+      element.value = element.value + " ";
     } else if (!backspace && element.value.length === 9) {
-      element.value = element.value + ' ';
+      element.value = element.value + " ";
     } else if (!backspace && element.value.length === 14) {
-      element.value = element.value + ' ';
+      element.value = element.value + " ";
     }
   });
 }
@@ -80,7 +80,7 @@ function numberValidation() {
     displayError(this);
     return false;
   } else if (!checkNumber(this)) {
-    displayError(this, 'Wrong format, numbers only');
+    displayError(this, "Wrong format, numbers only");
     return false;
   } else {
     validInput(this);
@@ -90,7 +90,7 @@ function numberValidation() {
 
 function updateNumber(element) {
   if (!element.value) {
-    cardNumber.textContent = '0000 0000 0000 0000';
+    cardNumber.textContent = "0000 0000 0000 0000";
   } else cardNumber.textContent = element.value;
 }
 
@@ -105,7 +105,7 @@ function monthValidation() {
     displayError(this);
     return false;
   } else if (!checkMonth(this)) {
-    displayError(this, 'Chose between 1 - 12');
+    displayError(this, "Chose between 1 - 12");
     return false;
   } else {
     validInput(this);
@@ -123,7 +123,7 @@ function yearValidation() {
     displayError(this);
     return false;
   } else if (!checkYear(this)) {
-    displayError(this, 'Chose between 1 - 99');
+    displayError(this, "Chose between 1 - 99");
     return false;
   } else {
     validInput(this);
@@ -134,9 +134,9 @@ function yearValidation() {
 function updateDate(out, element) {
   const formated = removeZero(element);
   if (!element.value) {
-    out.textContent = '00';
+    out.textContent = "00";
   } else if (Number(element.value) <= 9) {
-    out.textContent = '0' + formated;
+    out.textContent = "0" + formated;
   } else {
     out.textContent = formated;
   }
@@ -144,7 +144,7 @@ function updateDate(out, element) {
 
 function removeZero(element) {
   let correct = element.value;
-  while (correct.charAt(0) === '0') {
+  while (correct.charAt(0) === "0") {
     correct = correct.substring(1);
   }
   return correct;
@@ -161,7 +161,7 @@ function cvcValidation() {
     displayError(this);
     return false;
   } else if (!checkCvc(this)) {
-    displayError(this, 'Inavalid CVC! Chose between 000-999');
+    displayError(this, "Inavalid CVC! Chose between 000-999");
     return false;
   } else {
     validInput(this);
@@ -170,28 +170,28 @@ function cvcValidation() {
 }
 function updateCvc(element) {
   if (!element.value) {
-    cardCvc.textContent = '000';
+    cardCvc.textContent = "000";
   } else cardCvc.textContent = element.value;
 }
 
 // ERROR
 function displayError(element, message = "Can't be blank") {
-  element.ariaInvalid = 'true';
+  element.ariaInvalid = "true";
   const inputField = element;
-  const error = inputField.parentElement.querySelector('.error-msg');
-  inputField.classList.remove('valid');
-  inputField.classList.add('error');
+  const error = inputField.parentElement.querySelector(".error-msg");
+  inputField.classList.remove("valid");
+  inputField.classList.add("error");
   error.children[0].textContent = `${message}`;
 }
 
 //VALID
 function validInput(element) {
-  element.ariaInvalid = 'false';
+  element.ariaInvalid = "false";
   const inputField = element;
-  const error = inputField.parentElement.querySelector('.error-msg');
-  inputField.classList.remove('error');
-  inputField.classList.add('valid');
-  error.children[0].textContent = '';
+  const error = inputField.parentElement.querySelector(".error-msg");
+  inputField.classList.remove("error");
+  inputField.classList.add("valid");
+  error.children[0].textContent = "";
 }
 
 function validForm() {
