@@ -105,7 +105,7 @@ function monthValidation() {
     displayError(this);
     return false;
   } else if (!checkMonth(this)) {
-    displayError(this, "Chose between 1 - 12");
+    displayError(this, "Choose between 1 - 12");
     return false;
   } else {
     validInput(this);
@@ -123,7 +123,7 @@ function yearValidation() {
     displayError(this);
     return false;
   } else if (!checkYear(this)) {
-    displayError(this, "Chose between 1 - 99");
+    displayError(this, "Choose between 1 - 99");
     return false;
   } else {
     validInput(this);
