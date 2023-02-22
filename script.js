@@ -176,8 +176,8 @@ function updateCvc(element) {
 
 // ERROR
 function displayError(element, message = "Can't be blank") {
-  element.ariaInvalid = "true";
   const inputField = element;
+  inputField.ariaInvalid = "true";
   const error = inputField.parentElement.querySelector(".error-msg");
   inputField.classList.remove("valid");
   inputField.classList.add("error");
@@ -186,8 +186,8 @@ function displayError(element, message = "Can't be blank") {
 
 //VALID
 function validInput(element) {
-  element.ariaInvalid = "false";
   const inputField = element;
+  inputField.ariaInvalid = "false";
   const error = inputField.parentElement.querySelector(".error-msg");
   inputField.classList.remove("error");
   inputField.classList.add("valid");
