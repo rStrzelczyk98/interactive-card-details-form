@@ -14,54 +14,95 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="CSS/desktop.css" />
+    <script defer src="script.js"></script>
     <title>Frontend Mentor | Interactive card details form</title>
   </head>
   <body>
     <main class="container">
-      <figure class="card front">
-        <img src="images/card-logo.svg" alt="" />
-        <p class="number">0000 0000 0000 0000</p>
-        <p class="cardholder">Jane Appleseed</p>
-        <p class="date">00/00</p>
-      </figure>
-      <figure class="card back">
-        <p class="cvc">000</p>
-      </figure>
-      <form class="card-details active" action="#" method="get">
-        <label for="fullName">Cardholder Name</label>
-        <input
-          type="text"
-          name="fullName"
-          id="fullName"
-          placeholder="e.g. Jane
-    Appleseed"
-        />
-        <label for="cardNumber">Card Number</label>
-        <input
-          type="text"
-          name="cardNumber"
-          id="cardNumber"
-          placeholder="e.g. 1234 5678 9123 0000"
-        />
-        <label for="date">Exp. Date (MM/YY)</label>
-        <input type="text" name="month" id="date" placeholder="MM" />
-        <input type="text" name="year" id="date" placeholder="YY" />
-        <label for="cvcNumber">CVC</label>
-        <input
-          type="text"
-          name="cvcNumber"
-          id="cvcNumber"
-          placeholder="e.g. 123"
-        />
-        <button class="btn confirm" type="submit">Confirm</button>
+      <span class="background">
+        <figure class="card front">
+          <img id="logo" src="images/card-logo.svg" alt="" />
+          <p id="number">0000 0000 0000 0000</p>
+          <p id="cardholder">Jane Appleseed</p>
+          <p id="date">
+            <span id="date-month">00</span>/<span id="date-year">00</span>
+          </p>
+        </figure>
+        <figure class="card back">
+          <span><p id="cvc">000</p></span>
+        </figure>
+      </span>
+      <form action="#" class="card-info">
+        <div class="field name">
+          <label for="name">cardholder name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            maxlength="35"
+            placeholder="e.g. Jane Appleseed"
+          />
+          <span class="error-msg"><p></p></span>
+        </div>
+
+        <div class="field card-number">
+          <label for="card-number">card number</label>
+          <input
+            type="text"
+            inputmode="numeric"
+            id="card-number"
+            name="card-number"
+            maxlength="19"
+            placeholder="e.g. 1234 5678 9123 0000"
+          />
+          <span class="error-msg"><p></p></span>
+        </div>
+
+        <div class="field exp-date">
+          <label for="exp-date">exp. date (mm/yy)</label>
+          <input
+            type="text"
+            inputmode="numeric"
+            id="exp-date"
+            name="month"
+            maxlength="2"
+            placeholder="MM"
+          />
+          <input
+            type="text"
+            inputmode="numeric"
+            id="exp-date"
+            name="year"
+            maxlength="2"
+            placeholder="YY"
+          />
+          <span class="error-msg"><p></p></span>
+        </div>
+
+        <div class="field cvc-number">
+          <label for="cvc-number">cvc</label>
+          <input
+            type="text"
+            id="cvc-number"
+            name="cvc-number"
+            maxlength="3"
+            placeholder="e.g. 123"
+          />
+          <span class="error-msg"><p></p></span>
+        </div>
+
+        <button class="btn confirm" type="submit">confirm</button>
       </form>
-      <figure class="thank-you">
-        <img src="images/icon-complete.svg" alt="" />
+
+      <figure class="thank-you hidden">
+        <img class="icon" src="images/icon-complete.svg" alt="" />
         <h1>Thank you!</h1>
         <p>We've added your card details</p>
         <button class="btn continue">Continue</button>
       </figure>
     </main>
+
     <footer class="attribution">
       <p>
         Challenge by
