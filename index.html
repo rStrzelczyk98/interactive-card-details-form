@@ -41,9 +41,14 @@
             id="name"
             name="name"
             maxlength="35"
+            aria-label="Write here your full name"
+            aria-errormessage="errorID"
+            aria-invalid="false"
             placeholder="e.g. Jane Appleseed"
           />
-          <span class="error-msg"><p></p></span>
+          <span class="error-msg"
+            ><p id="errorID" aria-live="assertive"></p
+          ></span>
         </div>
 
         <div class="field card-number">
@@ -54,9 +59,14 @@
             id="card-number"
             name="card-number"
             maxlength="19"
+            aria-label="Write here your card number"
+            aria-errormessage="errorID"
+            aria-invalid="false"
             placeholder="e.g. 1234 5678 9123 0000"
           />
-          <span class="error-msg"><p></p></span>
+          <span class="error-msg"
+            ><p id="errorID" aria-live="assertive"></p
+          ></span>
         </div>
 
         <div class="field exp-date">
@@ -67,39 +77,57 @@
             id="exp-date"
             name="month"
             maxlength="2"
+            aria-label="Write here your card expire month"
+            aria-errormessage="errorID"
+            aria-invalid="false"
             placeholder="MM"
           />
           <input
             type="text"
             inputmode="numeric"
-            id="exp-date"
+            id="exp-date-year"
             name="year"
             maxlength="2"
+            aria-label="Write here your card expire year (last two digits)"
+            aria-errormessage="errorID"
+            aria-invalid="false"
             placeholder="YY"
           />
-          <span class="error-msg"><p></p></span>
+          <span class="error-msg"
+            ><p id="errorID" aria-live="assertive"></p
+          ></span>
         </div>
 
         <div class="field cvc-number">
           <label for="cvc-number">cvc</label>
           <input
             type="text"
+            inputmode="numeric"
             id="cvc-number"
             name="cvc-number"
             maxlength="3"
+            aria-label="Write here your cvc number"
+            aria-errormessage="errorID"
+            aria-invalid="false"
             placeholder="e.g. 123"
           />
-          <span class="error-msg"><p></p></span>
+          <span class="error-msg"
+            ><p id="errorID" aria-live="assertive"></p
+          ></span>
         </div>
 
-        <button class="btn confirm" type="submit">confirm</button>
+        <button class="btn confirm" type="submit" aria-label="confirm button">
+          confirm
+        </button>
       </form>
 
       <figure class="thank-you hidden">
         <img class="icon" src="images/icon-complete.svg" alt="" />
         <h1>Thank you!</h1>
         <p>We've added your card details</p>
-        <button class="btn continue">Continue</button>
+        <button class="btn continue" aria-label="continue button">
+          Continue
+        </button>
       </figure>
     </main>
 

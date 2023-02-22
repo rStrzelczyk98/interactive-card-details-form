@@ -4,8 +4,9 @@
   --darkGrayishViolet: hsl(279, 6%, 55%);
   --veryDarkViolet: hsl(278, 68%, 11%);
   --red: hsl(0, 100%, 66%);
-  --green: hsl(83, 56%, 57%);
+  --green: hsl(83, 68%, 40%);
   --linearGradient: linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+  --hoverViolet: hsl(278, 94%, 30%);
 }
 * {
   font-family: 'Space Grotesk', sans-serif;
@@ -16,6 +17,11 @@
 html {
   font-size: 62.5%;
   background-color: var(--linearGradient);
+}
+a,
+button,
+input {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* MAIN */
@@ -123,15 +129,18 @@ html {
 .field input {
   font-size: 1.8rem;
   outline: transparent;
+  text-transform: uppercase;
   border: 0.1rem solid var(--lightGrayishViolet);
   border-radius: 1rem;
   padding: 1rem 1.5rem;
 }
 .field input::placeholder {
+  text-transform: none;
   color: var(--lightGrayishViolet);
 }
 .field input:is(:hover, :focus) {
-  border-color: hsl(278, 94%, 30%);
+  cursor: pointer;
+  border-color: var(--hoverViolet);
 }
 .btn {
   color: var(--white);
@@ -190,11 +199,13 @@ input[name='year'] {
   color: var(--red);
   font-size: 1.2rem;
 }
-input.error {
+input.error,
+input.error:focus {
   color: var(--red);
   border-color: var(--red);
 }
-input.valid {
+input.valid,
+input.valid:focus {
   border-color: var(--green);
   color: var(--green);
 }
@@ -235,12 +246,16 @@ input.valid {
 
 /* FOOTER */
 .attribution {
-  margin-top: 6rem;
+  margin-block: 3rem;
 }
 .attribution p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   text-align: center;
 }
-.attribution a {
-  color: var(--linearGradient);
+.attribution a:is(:link, :visited) {
+  text-decoration: none;
+  color: var(--hoverViolet);
+}
+.attribution a:is(:hover, :active) {
+  text-decoration: underline;
 }

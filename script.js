@@ -39,10 +39,10 @@ function checkName(element) {
 function nameValidation() {
   updateName(this);
   if (!this.value) {
-    displayError(this, "Can't be empty!");
+    displayError(this);
     return false;
   } else if (!checkName(this)) {
-    displayError(this, 'Invalid name!');
+    displayError(this, 'Invalid name');
     return false;
   } else {
     validInput(this);
@@ -77,10 +77,10 @@ function numberValidation() {
   cardNumberFormat(this);
   updateNumber(this);
   if (!this.value) {
-    displayError(this, "Can't be empty!");
+    displayError(this);
     return false;
   } else if (!checkNumber(this)) {
-    displayError(this, 'Invalid card number!');
+    displayError(this, 'Wrong format, numbers only');
     return false;
   } else {
     validInput(this);
@@ -102,10 +102,10 @@ function checkMonth(element) {
 function monthValidation() {
   updateDate(cardDateMonth, this);
   if (!this.value) {
-    displayError(this, "Can't be empty!");
+    displayError(this);
     return false;
   } else if (!checkMonth(this)) {
-    displayError(this, 'Invalid month! Chose between 01 - 12');
+    displayError(this, 'Chose between 1 - 12');
     return false;
   } else {
     validInput(this);
@@ -120,10 +120,10 @@ function checkYear(element) {
 function yearValidation() {
   updateDate(cardDateYear, this);
   if (!this.value) {
-    displayError(this, "Can't be empty!");
+    displayError(this);
     return false;
   } else if (!checkYear(this)) {
-    displayError(this, 'Invalid year! Chose between 01 - 99');
+    displayError(this, 'Chose between 1 - 99');
     return false;
   } else {
     validInput(this);
@@ -158,7 +158,7 @@ function checkCvc(element) {
 function cvcValidation() {
   updateCvc(this);
   if (!this.value) {
-    displayError(this, "Can't be blank!");
+    displayError(this);
     return false;
   } else if (!checkCvc(this)) {
     displayError(this, 'Inavalid CVC! Chose between 000-999');
@@ -175,7 +175,8 @@ function updateCvc(element) {
 }
 
 // ERROR
-function displayError(element, message) {
+function displayError(element, message = "Can't be blank") {
+  element.ariaInvalid = 'true';
   const inputField = element;
   const error = inputField.parentElement.querySelector('.error-msg');
   inputField.classList.remove('valid');
@@ -185,6 +186,7 @@ function displayError(element, message) {
 
 //VALID
 function validInput(element) {
+  element.ariaInvalid = 'false';
   const inputField = element;
   const error = inputField.parentElement.querySelector('.error-msg');
   inputField.classList.remove('error');

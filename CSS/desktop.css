@@ -15,7 +15,7 @@
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 850px) {
   .container {
     min-height: 100vh;
     grid-template-columns: auto 1fr;
@@ -33,11 +33,11 @@
   }
   .front {
     bottom: 51%;
-    left: 1.5rem;
+    left: 2rem;
   }
   .back {
     top: 51%;
-    left: 1.5rem;
+    left: 2rem;
   }
 }
 @media screen and (min-width: 1000px) {
